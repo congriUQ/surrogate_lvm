@@ -1,5 +1,4 @@
-function [varDistParams, x] = efficientStochOpt(...
-    x, log_emp_dist, variationalDist, stepWidth, dim, maxCompTime)
+function [varDistParams, x] = efficientStochOpt(x, log_emp_dist, variationalDist, stepWidth, dim, maxCompTime)
 %Memory efficient stocastic optimization for parfor loop
 %Perform stochastic maximization step
 
@@ -7,17 +6,17 @@ debug = false;   %debug mode
 
 updateRule = 'amsgrad';
 % beta1 = .7;                     %the higher, the more important is momentum
-% beta2 = .8;                    %curvature parameter
+% beta2 = .8;                     %curvature parameter
 beta1 = .9;
 beta2 = .9999995;
-epsilon = 1e-6;                  %curvature stabilization parameter
+epsilon = 1e-6;                   %curvature stabilization parameter
 
-stepOffset = 200000;                %Robbins-Monro step offset
+stepOffset = 200000;              %Robbins-Monro step offset
 maxIterations = Inf;
 if nargin < 6
     maxCompTime = 10;
 end
-nSamplesStart = 1;                  %gradient samples per iteration
+nSamplesStart = 1;                %gradient samples per iteration
 nSamplesEnd = 1;
 nIncr = (nSamplesEnd - nSamplesStart)/maxCompTime;
 nSamples = nSamplesStart;
@@ -76,8 +75,7 @@ end
 cmpt = tic;
 while ~converged
     
-    [gradient] =...
-        sampleELBOgrad(log_emp_dist, variationalDist, nSamples, varDistParams);
+    [gradient] = sampleELBOgrad(log_emp_dist, variationalDist, nSamples, varDistParams);
     
 
     if strcmp(updateRule, 'adam')

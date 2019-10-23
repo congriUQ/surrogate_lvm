@@ -1,7 +1,6 @@
-function [ELBOgrad, ELBOgradErr] =...
-    sampleELBOgrad(log_emp_dist, variationalDist, nSamples, varDistParams)
-%Estimation of gradient of evidence lower bound (ELBO)
-%log_emp_dist is a function handle to the log empirical distribution and grad
+function [ELBOgrad, ELBOgradErr] = sampleELBOgrad(log_emp_dist, variationalDist, nSamples, varDistParams)
+%Estimation of gradient of evidence lower bound (ELBO) log_emp_dist is a function handle to the log empirical
+%distribution and grad
 
 dim = numel(varDistParams.mu);
 if strcmp(variationalDist, 'diagonalGauss')

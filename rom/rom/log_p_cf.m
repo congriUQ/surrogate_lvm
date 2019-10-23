@@ -1,5 +1,5 @@
-function [log_p, d_log_p, Tc] = log_p_cf(Tf_n_minus_mu, coarseMesh,Xn,...
-    W_cf_n, S_cf_n, transType, transLimits, rf2fem, onlyGrad)
+function [log_p, d_log_p, Tc] = log_p_cf(Tf_n_minus_mu, coarseMesh,Xn, W_cf_n, S_cf_n, transType, transLimits,...
+    rf2fem, onlyGrad)
 %Coarse-to-fine map
 %ignore constant prefactor
 %log_p = -.5*logdet(S, 'chol') - .5*(Tf - mu)'*(S\(Tf - mu));

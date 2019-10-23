@@ -1,6 +1,5 @@
-function [log_q, d_log_q, Tc] = log_q_n(Xn, Tf_n_minus_mu, W_cf_n, S_cf_n,...
-    theta_c, designMatrix,  coarseMesh, transType, transLimits, rf2fem,...
-    onlyGrad)
+function [log_q, d_log_q, Tc] = log_q_n(Xn, Tf_n_minus_mu, W_cf_n, S_cf_n, theta_c, designMatrix,  coarseMesh,...
+    transType, transLimits, rf2fem, onlyGrad)
 
 %Xi must be a column vector
 if size(Xn, 2) > 1
@@ -13,6 +12,17 @@ end
 
 log_q = lg_p_cf + lg_p_c;
 d_log_q = d_lg_p_c + d_lg_p_cf;
+
+
+
+
+
+
+
+
+
+
+
 
 %Finite difference gradient check
 FDcheck = false;
